@@ -17,7 +17,8 @@ public class EnemyAttack : MonoBehaviour
 
     void Awake ()
     {
-        player = GameObject.FindGameObjectWithTag ("Player");
+        //player = GameObject.FindGameObjectWithTag ("Player");
+		player = GameObject.Find ("Player");// Obviously there is a bug with the Unity tagging system
         playerHealth = player.GetComponent <PlayerHealth> ();
         //enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent <Animator> ();
@@ -28,6 +29,7 @@ public class EnemyAttack : MonoBehaviour
     {
         if(other.gameObject == player)
         {
+			Debug.Log("Player in range");
             playerInRange = true;
         }
     }
